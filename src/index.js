@@ -6,9 +6,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import './index.css';
 
 ReactDOM.render(
-  <div className="row">
     <Markdown />
-  </div>
   ,
   document.getElementById('root'));
 registerServiceWorker();

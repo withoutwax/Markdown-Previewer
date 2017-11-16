@@ -1,6 +1,8 @@
 import React from 'react';
 import Form from './Form';
+import marked from 'marked';
 import './Markdown.css';
+
 
 class Markdown extends React.Component {
   constructor() {
@@ -10,17 +12,23 @@ class Markdown extends React.Component {
     }
     this.translateMarkdown = this.translateMarkdown.bind(this);
   }
-  translateMarkdown(dataFromForm) {
-    var data = dataFromForm;
+  translateMarkdown(val) {
+    var markedDown = marked(val);
+    console.log(markedDown);
     this.setState({
-      value: data
+      value: markedDown
     });
   }
   render() {
     return (
-      <div className="col-md-6">
-        <Form parent={this.translateMarkdown}/>
-        <p>{this.state.value}</p>
+      <div className="row">
+        <div className="col-md-6">
+          <Form parent={this.translateMarkdown}/>
+        </div>
+        <div className="col-md-6">
+          {/* Making it unescape */}
+          <div dangerouslySetInnerHTML={{__html: this.state.value}}></div>
+        </div>
       </div>
     );
   }
