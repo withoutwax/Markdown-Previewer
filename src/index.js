@@ -8,12 +8,23 @@ import './index.css';
 
 // Redux
 import { Provider } from 'react-redux';
-import store from "./store";
+import { createStore } from 'redux';
+import { Values } from 'redux-form-website-template';
+import reducers from './reducers';
+
+const store = createStore(reducers);
+
+function test() {
+  console.log("YES!");
+}
 
 ReactDOM.render(
   <Provider store={store}>
-    <Form />
-    {/* <Markdown /> */}
+    <div>
+      <Form onSubmit={test}/>
+      <Markdown />
+      <Values form="simple" />
+    </div>
   </Provider>
   ,
   document.getElementById('root'));

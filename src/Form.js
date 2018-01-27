@@ -12,6 +12,11 @@ const Form = (props) => {
           <label>Markdown</label>
           <Field name="markdown" component="textarea" />
         </div>
+        <div>
+          <button type="submit">
+            Submit
+          </button>
+        </div>
       </form>
   );
 }
