@@ -11,19 +11,22 @@ import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import { Values } from 'redux-form-website-template';
 import reducers from './reducers';
+import test from './actions'
 
 const store = createStore(reducers);
 
-function test() {
-  console.log("YES!");
+function test02() {
+  console.log("test02: onSubmit");
+  console.log(store);
+  console.log(store.form);
 }
 
 ReactDOM.render(
   <Provider store={store}>
     <div>
-      <Form onSubmit={test}/>
+      <Form onChange={test} onSubmit={test02}/>
       <Markdown />
-      <Values form="simple" />
+      <Values form="markdownForm" />
     </div>
   </Provider>
   ,
